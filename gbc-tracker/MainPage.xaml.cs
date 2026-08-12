@@ -1,4 +1,4 @@
-﻿namespace gbc_tracker;
+namespace GBC.Tracker;
 
 public partial class MainPage : ContentPage
 {

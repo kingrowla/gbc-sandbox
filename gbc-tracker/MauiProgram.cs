@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 
-namespace gbc_tracker;
+namespace GBC.Tracker;
 
 public static class MauiProgram
 {

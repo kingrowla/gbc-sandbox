@@ -1,6 +1,6 @@
 ﻿using Foundation;
 
-namespace gbc_tracker;
+namespace GBC.Tracker;
 
 [Register("AppDelegate")]
 public class AppDelegate : MauiUIApplicationDelegate

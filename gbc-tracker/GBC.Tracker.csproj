@@ -13,7 +13,8 @@
         <!-- For example: <RuntimeIdentifiers>maccatalyst-x64;maccatalyst-arm64</RuntimeIdentifiers> -->
 
         <OutputType>Exe</OutputType>
-        <RootNamespace>gbc_tracker</RootNamespace>
+        <RootNamespace>GBC.Tracker</RootNamespace>
+        <AssemblyName>GBC.Tracker</AssemblyName>
         <UseMaui>true</UseMaui>
         <SingleProject>true</SingleProject>
         <ImplicitUsings>enable</ImplicitUsings>
@@ -28,10 +29,10 @@
         <MauiXamlInflator>SourceGen</MauiXamlInflator>
 
         <!-- Display name -->
-        <ApplicationTitle>gbc-tracker</ApplicationTitle>
+        <ApplicationTitle>GBC.Tracker</ApplicationTitle>
 
         <!-- App Identifier -->
-        <ApplicationId>com.gbc.public</ApplicationId>
+        <ApplicationId>com.gbc.tracker.app</ApplicationId>
 
         <!-- Versions -->
         <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>

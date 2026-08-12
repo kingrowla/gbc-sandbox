@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Shell
-    x:Class="gbc_tracker.AppShell"
+    x:Class="GBC.Tracker.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:gbc_tracker"
-    Title="gbc_tracker">
+    xmlns:local="clr-namespace:GBC.Tracker"
+    Title="GBC.Tracker">
 
     <ShellContent
         Title="Home"

@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 
-namespace gbc_tracker;
+namespace GBC.Tracker;
 
 public partial class App : Application
 {

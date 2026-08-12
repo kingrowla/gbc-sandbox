@@ -1,7 +1,7 @@
 ﻿using ObjCRuntime;
 using UIKit;
 
-namespace gbc_tracker;
+namespace GBC.Tracker;
 
 public class Program
 {

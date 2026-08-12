@@ -1,8 +1,8 @@
 ﻿<maui:MauiWinUIApplication
-    x:Class="gbc_tracker.WinUI.App"
+    x:Class="GBC.Tracker.WinUI.App"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:maui="using:Microsoft.Maui"
-    xmlns:local="using:gbc_tracker.WinUI">
+    xmlns:local="using:GBC.Tracker.WinUI">
 
 </maui:MauiWinUIApplication>
