@@ -14,7 +14,16 @@ public static class MauiProgram
             fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
             fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
             fonts.AddFont("Font Awesome 7 Free-Solid-900.otf", "FontAwesomeSolid");
-        }).UseMauiCommunityToolkit();
+        })
+        .UseMauiCommunityToolkit();
+
+#if IOS || MACCATALYST
+        builder.UseMauiMaps();
+#endif
+
+#if IOS
+        FireTruckMapPinHandler.Configure();
+#endif
 
         builder.Services.AddSingleton<INavigationService, ShellNavigationService>();
         builder.Services.AddSingleton<ILocationPermissionService, LocationPermissionService>();

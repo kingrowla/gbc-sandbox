@@ -44,9 +44,22 @@ public partial class HomeViewModel(
 
     [RelayCommand(CanExecute = nameof(IsLocalAccessEnabled))]
     private Task OpenFireTruckTrackerAsync() =>
-        navigationService.GoToAsync(AppRoutes.FireTruckTracker);
+        NavigateToMapAsync(AppRoutes.FireTruckTracker);
 
     [RelayCommand(CanExecute = nameof(IsLocalAccessEnabled))]
     private Task OpenBandTrackerAsync() =>
-        navigationService.GoToAsync(AppRoutes.BandTracker);
+        NavigateToMapAsync(AppRoutes.BandTracker);
+
+    private Task NavigateToMapAsync(string route)
+    {
+        if (DeviceInfo.Platform == DevicePlatform.Android)
+        {
+            return alertService.ShowAsync(
+                "Map routes unavailable",
+                "Map tracking are not currently supported on Android.",
+                "OK");
+        }
+
+        return navigationService.GoToAsync(route);
+    }
 }

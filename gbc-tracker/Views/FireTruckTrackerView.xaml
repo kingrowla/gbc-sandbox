@@ -3,17 +3,18 @@
     x:Class="GBC.Tracker.FireTruckTrackerView"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:maps="http://schemas.microsoft.com/dotnet/2021/maui/maps"
     Title="Fire Truck Tracker"
-    BackgroundColor="{StaticResource PageBackground}">
+    BackgroundColor="{StaticResource GulfBreezePrimaryBlue}"
+    Shell.BackgroundColor="{StaticResource GulfBreezePrimaryBlue}"
+    Shell.ForegroundColor="White"
+    Shell.TitleColor="White">
 
-    <VerticalStackLayout Padding="24" Spacing="12" VerticalOptions="Center">
-        <Label
-            Style="{StaticResource SectionTitleStyle}"
-            HorizontalTextAlignment="Center"
-            Text="Fire Truck Tracker" />
-        <Label
-            HorizontalTextAlignment="Center"
-            Text="Live fire truck route tracking will appear here."
-            TextColor="{StaticResource SecondaryText}" />
-    </VerticalStackLayout>
+    <maps:Map
+        x:Name="TrackerMap"
+        IsScrollEnabled="True"
+        IsShowingUser="True"
+        IsTrafficEnabled="False"
+        IsZoomEnabled="True"
+        MapType="Street" />
 </ContentPage>
