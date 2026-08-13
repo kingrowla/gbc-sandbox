@@ -29,7 +29,7 @@
         <MauiXamlInflator>SourceGen</MauiXamlInflator>
 
         <!-- Display name -->
-        <ApplicationTitle>GBC.Tracker</ApplicationTitle>
+        <ApplicationTitle>Fire Truck Tracker</ApplicationTitle>
 
         <!-- App Identifier -->
         <ApplicationId>com.gbc.tracker.app</ApplicationId>
@@ -37,6 +37,9 @@
         <!-- Versions -->
         <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
         <ApplicationVersion>1</ApplicationVersion>
+
+        <ApplicationManifest Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">Platforms/iOS/Info.plist</ApplicationManifest>
+        <ApplicationManifest Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">Platforms/MacCatalyst/Info.plist</ApplicationManifest>
 
         <!-- To develop, package, and publish an app to the Microsoft Store, see: https://aka.ms/MauiTemplateUnpackaged -->
         <WindowsPackageType>None</WindowsPackageType>
@@ -46,6 +49,7 @@
         <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
         <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
         <TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
+
     </PropertyGroup>
 
     <ItemGroup>

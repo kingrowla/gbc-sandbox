@@ -17,6 +17,7 @@ public static class MauiProgram
         }).UseMauiCommunityToolkit();
 
         builder.Services.AddSingleton<INavigationService, ShellNavigationService>();
+        builder.Services.AddSingleton<ILocationPermissionService, LocationPermissionService>();
         builder.Services.AddTransient<AppShell>();
         builder.Services.AddTransient<HomeViewModel>();
         builder.Services.AddTransient<HomeView>();

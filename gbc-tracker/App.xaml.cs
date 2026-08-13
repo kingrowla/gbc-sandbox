@@ -1,6 +1,6 @@
 ﻿namespace GBC.Tracker;
 
-public partial class App : Application
+public partial class App
 {
     private readonly AppShell _appShell;
 
