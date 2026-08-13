@@ -18,6 +18,8 @@ public static class MauiProgram
 
         builder.Services.AddSingleton<INavigationService, ShellNavigationService>();
         builder.Services.AddSingleton<ILocationPermissionService, LocationPermissionService>();
+        builder.Services.AddSingleton<ILocalAccessService, LocalAccessService>();
+        builder.Services.AddSingleton<IAlertService, ShellAlertService>();
         builder.Services.AddTransient<AppShell>();
         builder.Services.AddTransient<HomeViewModel>();
         builder.Services.AddTransient<HomeView>();

@@ -6,9 +6,15 @@ namespace GBC.Tracker.ViewModels;
 
 public partial class HomeViewModel(
     INavigationService navigationService,
-    ILocationPermissionService locationPermissionService) : ObservableObject
+    ILocalAccessService localAccessService,
+    IAlertService alertService) : ObservableObject
 {
     private bool _hasInitialized;
+
+    [ObservableProperty]
+    [NotifyCanExecuteChangedFor(nameof(OpenFireTruckTrackerCommand))]
+    [NotifyCanExecuteChangedFor(nameof(OpenBandTrackerCommand))]
+    private bool isLocalAccessEnabled;
 
     public async Task InitializeAsync()
     {
@@ -19,7 +25,16 @@ public partial class HomeViewModel(
 
         try
         {
-            await locationPermissionService.RequestWhenInUseAsync();
+            var result = await localAccessService.CheckAsync();
+            IsLocalAccessEnabled = result == LocalAccessResult.Allowed;
+
+            if (result == LocalAccessResult.OutsideServiceArea)
+            {
+                await alertService.ShowAsync(
+                    "Outside service area",
+                    "This location app is intended for local users at this time.",
+                    "OK");
+            }
         }
         finally
         {
@@ -27,11 +42,11 @@ public partial class HomeViewModel(
         }
     }
 
-    [RelayCommand]
+    [RelayCommand(CanExecute = nameof(IsLocalAccessEnabled))]
     private Task OpenFireTruckTrackerAsync() =>
         navigationService.GoToAsync(AppRoutes.FireTruckTracker);
 
-    [RelayCommand]
+    [RelayCommand(CanExecute = nameof(IsLocalAccessEnabled))]
     private Task OpenBandTrackerAsync() =>
         navigationService.GoToAsync(AppRoutes.BandTracker);
 }

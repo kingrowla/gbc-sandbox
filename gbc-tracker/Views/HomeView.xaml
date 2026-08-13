@@ -87,8 +87,17 @@
                     <Border
                         Grid.Column="0"
                         Style="{StaticResource TrackerTileStyle}"
+                        IsEnabled="{Binding IsLocalAccessEnabled}"
                         AutomationId="FireTruckTrackerTile"
                         SemanticProperties.Description="Open the Fire Truck Tracker for real-time route updates">
+                        <Border.Triggers>
+                            <DataTrigger
+                                TargetType="Border"
+                                Binding="{Binding IsLocalAccessEnabled}"
+                                Value="False">
+                                <Setter Property="Opacity" Value="0.55" />
+                            </DataTrigger>
+                        </Border.Triggers>
                         <Border.GestureRecognizers>
                             <TapGestureRecognizer Command="{Binding OpenFireTruckTrackerCommand}" />
                         </Border.GestureRecognizers>
@@ -134,8 +143,17 @@
                     <Border
                         Grid.Column="1"
                         Style="{StaticResource TrackerTileStyle}"
+                        IsEnabled="{Binding IsLocalAccessEnabled}"
                         AutomationId="BandTrackerTile"
                         SemanticProperties.Description="Open the Band Tracker for real-time marching band route updates">
+                        <Border.Triggers>
+                            <DataTrigger
+                                TargetType="Border"
+                                Binding="{Binding IsLocalAccessEnabled}"
+                                Value="False">
+                                <Setter Property="Opacity" Value="0.55" />
+                            </DataTrigger>
+                        </Border.Triggers>
                         <Border.GestureRecognizers>
                             <TapGestureRecognizer Command="{Binding OpenBandTrackerCommand}" />
                         </Border.GestureRecognizers>
