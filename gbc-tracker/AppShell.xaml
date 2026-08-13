@@ -7,8 +7,8 @@
     Title="GBC.Tracker">
 
     <ShellContent
+        x:Name="HomeShellContent"
         Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
 
 </Shell>

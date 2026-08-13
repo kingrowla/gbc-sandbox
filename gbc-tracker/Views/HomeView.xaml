@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="GBC.Tracker.HomeView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:viewModels="clr-namespace:GBC.Tracker.ViewModels"
+    x:DataType="viewModels:HomeViewModel"
+    Shell.NavBarIsVisible="False"
+    BackgroundColor="{StaticResource GulfBreezePrimaryBlue}">
+
+    <Grid RowDefinitions="Auto,*">
+
+        <!-- Civic-branded header -->
+        <Border
+            Grid.Row="0"
+            StrokeThickness="0">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="0,0,34,34" />
+            </Border.StrokeShape>
+
+            <!-- The border paints behind the system status bar; this inner grid
+                 adds the device-specific top inset for readable content. -->
+            <Grid
+                Padding="24,20,24,44"
+                SafeAreaEdges="None,Container,None,None"
+                ColumnDefinitions="*,Auto"
+                ColumnSpacing="16">
+                <VerticalStackLayout Spacing="5" VerticalOptions="Center">
+                    <Label
+                        Style="{StaticResource PageTitleStyle}"
+                        Text="Route Tracker"
+                        SemanticProperties.HeadingLevel="Level1" />
+                    <Label
+                        Style="{StaticResource PageSubtitleStyle}"
+                        Text="City of Gulf Breeze community events" />
+                </VerticalStackLayout>
+
+                <Border
+                    Grid.Column="1"
+                    Padding="12"
+                    BackgroundColor="#26FFFFFF"
+                    HeightRequest="54"
+                    StrokeThickness="0"
+                    WidthRequest="54">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="18" />
+                    </Border.StrokeShape>
+                    <!-- Font Awesome: location-dot -->
+                    <Label
+                        FontFamily="FontAwesomeSolid"
+                        FontSize="24"
+                        HorizontalTextAlignment="Center"
+                        Text="&#xf3c5;"
+                        TextColor="White"
+                        VerticalTextAlignment="Center" />
+                </Border>
+            </Grid>
+        </Border>
+
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout Padding="22,28,22,32" Spacing="18">
+                <Label
+                    Style="{StaticResource SectionTitleStyle}"
+                    Text="Choose a live route"
+                    SemanticProperties.HeadingLevel="Level2" />
+
+                <Grid
+                    ColumnDefinitions="*,*"
+                    ColumnSpacing="16"
+                    RowDefinitions="Auto">
+
+                    <Border
+                        Grid.Column="0"
+                        Style="{StaticResource TrackerTileStyle}"
+                        AutomationId="FireTruckTrackerTile"
+                        SemanticProperties.Description="Open the Fire Truck Tracker for real-time route updates">
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding OpenFireTruckTrackerCommand}" />
+                        </Border.GestureRecognizers>
+
+                        <VerticalStackLayout
+                            HorizontalOptions="Center"
+                            Spacing="12"
+                            VerticalOptions="Center">
+                            <Border
+                                Style="{StaticResource TileIconContainerStyle}"
+                                BackgroundColor="#FDEBEC">
+                                <!-- Font Awesome: tree (holiday route) -->
+                                <Label
+                                    Style="{StaticResource TileIconStyle}"
+                                    Text="&#xf1bb;"
+                                    TextColor="{StaticResource FireEngineRed}" />
+                            </Border>
+
+                            <Label
+                                Style="{StaticResource TileTitleStyle}"
+                                Text="Fire Truck Tracker" />
+                            <Label
+                                Style="{StaticResource TileSubtitleStyle}"
+                                Text="Real-time route updates" />
+
+                            <Border Style="{StaticResource StatusPillStyle}">
+                                <HorizontalStackLayout Spacing="6">
+                                    <Label
+                                        FontFamily="FontAwesomeSolid"
+                                        FontSize="10"
+                                        Text="&#xf111;"
+                                        TextColor="{StaticResource GulfBreezeGreen}" />
+                                    <Label
+                                        FontAttributes="Bold"
+                                        FontSize="11"
+                                        Text="LIVE ROUTE"
+                                        TextColor="{StaticResource GulfBreezeGreen}" />
+                                </HorizontalStackLayout>
+                            </Border>
+                        </VerticalStackLayout>
+                    </Border>
+
+                    <Border
+                        Grid.Column="1"
+                        Style="{StaticResource TrackerTileStyle}"
+                        AutomationId="BandTrackerTile"
+                        SemanticProperties.Description="Open the Band Tracker for real-time marching band route updates">
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding OpenBandTrackerCommand}" />
+                        </Border.GestureRecognizers>
+
+                        <VerticalStackLayout
+                            HorizontalOptions="Center"
+                            Spacing="12"
+                            VerticalOptions="Center">
+                            <Border
+                                Style="{StaticResource TileIconContainerStyle}"
+                                BackgroundColor="#E5F3FA">
+                                <!-- Font Awesome: music -->
+                                <Label
+                                    Style="{StaticResource TileIconStyle}"
+                                    Text="&#xf001;"
+                                    TextColor="{StaticResource GulfBreezeBlue}" />
+                            </Border>
+
+                            <Label
+                                Style="{StaticResource TileTitleStyle}"
+                                Text="Band Tracker" />
+                            <Label
+                                Style="{StaticResource TileSubtitleStyle}"
+                                Text="Real-time marching band route updates" />
+
+                            <Border Style="{StaticResource StatusPillStyle}">
+                                <HorizontalStackLayout Spacing="6">
+                                    <Label
+                                        FontFamily="FontAwesomeSolid"
+                                        FontSize="10"
+                                        Text="&#xf111;"
+                                        TextColor="{StaticResource GulfBreezeGreen}" />
+                                    <Label
+                                        FontAttributes="Bold"
+                                        FontSize="11"
+                                        Text="LIVE ROUTE"
+                                        TextColor="{StaticResource GulfBreezeGreen}" />
+                                </HorizontalStackLayout>
+                            </Border>
+                        </VerticalStackLayout>
+                    </Border>
+                </Grid>
+
+                <Label
+                    Margin="8,4,8,0"
+                    FontSize="12"
+                    HorizontalTextAlignment="Center"
+                    Text="Location access will be requested when you open a route."
+                    TextColor="{StaticResource SecondaryText}" />
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

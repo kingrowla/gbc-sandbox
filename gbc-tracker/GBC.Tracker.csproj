@@ -67,8 +67,23 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)"/>
+        <PackageReference Include="CommunityToolkit.Maui" Version="14.2.2" />
+        <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.2" />
+        <PackageReference Include="Microsoft.Maui.Controls" Version="10.0.90" />
         <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="10.0.0"/>
+    </ItemGroup>
+
+    <ItemGroup>
+      <MauiXaml Update="Views\HomeView.xaml">
+        <SubType>Designer</SubType>
+      </MauiXaml>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="Views\HomeView.xaml.cs">
+        <DependentUpon>MainPage.xaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
     </ItemGroup>
 
 </Project>
