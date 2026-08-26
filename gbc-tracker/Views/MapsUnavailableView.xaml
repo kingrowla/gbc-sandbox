@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="GBC.Tracker.MapsUnavailableView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Fire Truck Tracker"
+    BackgroundColor="{StaticResource PageBackground}"
+    Shell.BackgroundColor="{StaticResource GulfBreezePrimaryBlue}"
+    Shell.ForegroundColor="White"
+    Shell.TitleColor="White">
+
+    <VerticalStackLayout
+        Padding="32"
+        Spacing="14"
+        VerticalOptions="Center">
+        <Label
+            FontFamily="FontAwesomeSolid"
+            FontSize="44"
+            HorizontalTextAlignment="Center"
+            Text="&#xf279;"
+            TextColor="{StaticResource GulfBreezeBlue}" />
+        <Label
+            Style="{StaticResource SectionTitleStyle}"
+            HorizontalTextAlignment="Center"
+            Text="Maps unavailable" />
+        <Label
+            HorizontalTextAlignment="Center"
+            Text="Live maps are not currently supported on Android."
+            TextColor="{StaticResource SecondaryText}" />
+    </VerticalStackLayout>
+</ContentPage>

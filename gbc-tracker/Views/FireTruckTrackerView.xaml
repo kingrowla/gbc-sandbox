@@ -13,7 +13,7 @@
     <maps:Map
         x:Name="TrackerMap"
         IsScrollEnabled="True"
-        IsShowingUser="True"
+        IsShowingUser="False"
         IsTrafficEnabled="False"
         IsZoomEnabled="True"
         MapType="Street" />

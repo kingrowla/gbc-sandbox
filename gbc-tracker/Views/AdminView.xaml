@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="GBC.Tracker.AdminView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewModels="clr-namespace:GBC.Tracker.ViewModels"
+    x:DataType="viewModels:AdminViewModel"
+    Title="Admin"
+    BackgroundColor="{StaticResource PageBackground}"
+    Shell.BackgroundColor="{StaticResource GulfBreezePrimaryBlue}"
+    Shell.ForegroundColor="White"
+    Shell.TitleColor="White">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="24,32" Spacing="20">
+            <Label
+                Style="{StaticResource SectionDarkTitleStyle}"
+                Text="Location sharing" />
+
+            <Border
+                Padding="20"
+                BackgroundColor="{StaticResource Surface}"
+                Stroke="{StaticResource BorderColor}"
+                StrokeShape="RoundRectangle 20">
+                <Grid ColumnDefinitions="*,Auto" ColumnSpacing="16">
+                    <VerticalStackLayout Spacing="6">
+                        <Label
+                            FontAttributes="Bold"
+                            FontSize="18"
+                            Text="Share this device's location"
+                            TextColor="{StaticResource PrimaryText}" />
+                        <Label
+                            FontSize="14"
+                            Text="Turn this on only on the phone traveling with the fire truck."
+                            TextColor="{StaticResource SecondaryText}" />
+                    </VerticalStackLayout>
+
+                    <Switch
+                        Grid.Column="1"
+                        AutomationId="LocationSharingSwitch"
+                        IsToggled="{Binding TrackingShareState.IsSharingLocation, Mode=TwoWay}"
+                        OnColor="{StaticResource GulfBreezeGreen}"
+                        VerticalOptions="Center" />
+                </Grid>
+            </Border>
+
+            <Border
+                Padding="16"
+                BackgroundColor="#E5F3FA"
+                StrokeThickness="0"
+                StrokeShape="RoundRectangle 16">
+                <Label
+                    FontSize="13"
+                    Text="Location is shared only while this setting is on. Live transmission will be connected in the next tracking step."
+                    TextColor="{StaticResource GulfBreezePrimaryBlue}" />
+            </Border>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

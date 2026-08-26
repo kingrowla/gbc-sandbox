@@ -41,6 +41,12 @@
         <Setter Property="FontSize" Value="20" />
         <Setter Property="TextColor" Value="{StaticResource Surface}" />
     </Style>
+    
+    <Style x:Key="SectionDarkTitleStyle" TargetType="Label">
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="FontSize" Value="20" />
+        <Setter Property="TextColor" Value="{StaticResource GulfBreezePrimaryBlue}" />
+    </Style>
 
     <Style x:Key="TrackerTileStyle" TargetType="Border">
         <Setter Property="BackgroundColor" Value="{StaticResource Surface}" />

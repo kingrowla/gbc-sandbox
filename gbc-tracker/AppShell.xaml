@@ -3,12 +3,99 @@
     x:Class="GBC.Tracker.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:GBC.Tracker"
-    Title="GBC.Tracker">
+    FlyoutBackgroundColor="#8FBCCF"
+    Title="GBC Tracker">
+    
+    <!-- Flyout Header -->
+        <Shell.FlyoutHeaderTemplate>
+            <DataTemplate>
+                <Grid RowDefinitions="80,20">
+                <Image
+                    Source="gb_logo.png"
+                    HeightRequest="80"
+                    WidthRequest="80"
+                    Aspect="AspectFill"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center">
+                    <!-- <Image.Clip> -->
+                    <!--     <EllipseGeometry RadiusX="60" -->
+                    <!--                      RadiusY="60" -->
+                    <!--                      Center="60,60" /> -->
+                    <!-- </Image.Clip> -->
+                    </Image>
+                </Grid>
+            </DataTemplate>
+        </Shell.FlyoutHeaderTemplate>
 
-    <ShellContent
-        x:Name="HomeShellContent"
+    <Shell.ItemTemplate>
+        <DataTemplate>
+            <Border
+                Margin="10,4"
+                Padding="16,13"
+                BackgroundColor="Transparent"
+                StrokeThickness="0">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="14" />
+                </Border.StrokeShape>
+
+                <Label
+                    x:Name="FlyoutItemLabel"
+                    FontAttributes="Bold"
+                    FontSize="16"
+                    Text="{Binding Title}"
+                    TextColor="{StaticResource GulfBreezePrimaryBlue}"
+                    VerticalTextAlignment="Center" />
+
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroup Name="CommonStates">
+                        <VisualState Name="Normal" />
+                        <VisualState Name="Selected">
+                            <VisualState.Setters>
+                                <Setter
+                                    Property="BackgroundColor"
+                                    Value="{StaticResource GulfBreezePrimaryBlue}" />
+                                <Setter
+                                    TargetName="FlyoutItemLabel"
+                                    Property="Label.TextColor"
+                                    Value="White" />
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState Name="Disabled">
+                            <VisualState.Setters>
+                                <Setter Property="Opacity" Value="0.45" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateManager.VisualStateGroups>
+            </Border>
+        </DataTemplate>
+    </Shell.ItemTemplate>
+
+    <FlyoutItem
         Title="Home"
-        Route="MainPage" />
+        Route="Home">
+        <ShellContent
+            x:Name="HomeShellContent"
+            Title="Tracking Gulf Breeze"
+            Route="HomeView" />
+    </FlyoutItem>
+    
+    <FlyoutItem
+        Title="Tracker"
+        Route="Tracker">
+        <ShellContent
+            x:Name="TrackerShellContent"
+            Title="Fire Truck Tracker"
+            Route="FireTruckTracker" />
+    </FlyoutItem>
+
+    <FlyoutItem
+        Title="Admin"
+        Route="Admin">
+        <ShellContent
+            x:Name="AdminShellContent"
+            Title="Admin"
+            Route="AdminSettings" />
+    </FlyoutItem>
 
 </Shell>

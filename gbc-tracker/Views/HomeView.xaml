@@ -6,7 +6,10 @@
     xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     xmlns:viewModels="clr-namespace:GBC.Tracker.ViewModels"
     x:DataType="viewModels:HomeViewModel"
-    Shell.NavBarIsVisible="False"
+    Shell.NavBarIsVisible="True"
+    Shell.BackgroundColor="{StaticResource GulfBreezePrimaryBlue}"
+    Shell.ForegroundColor="{StaticResource White}"
+    Shell.TitleColor="White"
     BackgroundColor="{StaticResource GulfBreezePrimaryBlue}">
 
     <Grid RowDefinitions="Auto,*">
@@ -35,40 +38,40 @@
                     SemanticProperties.Description="City of Gulf Breeze logo"
                     Source="gb_logo.png" />
 
-                <Grid
-                    Grid.Row="1"
-                    HorizontalOptions="Center"
-                    ColumnDefinitions="Auto,Auto"
-                    ColumnSpacing="8"
-                    RowDefinitions="Auto,Auto"
-                    RowSpacing="5"
-                    VerticalOptions="Center">
-                    <Label
-                        Grid.Row="0"
-                        Grid.Column="0"
-                        HorizontalTextAlignment="Center"
-                        Style="{StaticResource PageTitleStyle}"
-                        Text="Route Tracker"
-                        SemanticProperties.HeadingLevel="Level1" />
-
-                    <!-- Font Awesome: location-dot -->
-                    <Label
-                        Grid.Row="0"
-                        Grid.Column="1"
-                        FontFamily="FontAwesomeSolid"
-                        FontSize="32"
-                        Text="&#xf3c5;"
-                        TextColor="White"
-                        VerticalTextAlignment="Center" />
-
-                    <Label
-                        Grid.Row="1"
-                        Grid.Column="0"
-                        Grid.ColumnSpan="2"
-                        HorizontalTextAlignment="Center"
-                        Style="{StaticResource PageSubtitleStyle}"
-                        Text="City of Gulf Breeze community events" />
-                </Grid>
+                <!-- <Grid -->
+                <!--     Grid.Row="1" -->
+                <!--     HorizontalOptions="Center" -->
+                <!--     ColumnDefinitions="Auto,Auto" -->
+                <!--     ColumnSpacing="8" -->
+                <!--     RowDefinitions="Auto,Auto" -->
+                <!--     RowSpacing="5" -->
+                <!--     VerticalOptions="Center"> -->
+                <!--     <Label -->
+                <!--         Grid.Row="0" -->
+                <!--         Grid.Column="0" -->
+                <!--         HorizontalTextAlignment="Center" -->
+                <!--         Style="{StaticResource PageTitleStyle}" -->
+                <!--         Text="Route Tracker" -->
+                <!--         SemanticProperties.HeadingLevel="Level1" /> -->
+                <!-- -->
+                <!--     ~1~ Font Awesome: location-dot @1@ -->
+                <!--     <Label -->
+                <!--         Grid.Row="0" -->
+                <!--         Grid.Column="1" -->
+                <!--         FontFamily="FontAwesomeSolid" -->
+                <!--         FontSize="32" -->
+                <!--         Text="&#xf3c5;" -->
+                <!--         TextColor="White" -->
+                <!--         VerticalTextAlignment="Center" /> -->
+                <!-- -->
+                <!--     <Label -->
+                <!--         Grid.Row="1" -->
+                <!--         Grid.Column="0" -->
+                <!--         Grid.ColumnSpan="2" -->
+                <!--         HorizontalTextAlignment="Center" -->
+                <!--         Style="{StaticResource PageSubtitleStyle}" -->
+                <!--         Text="City of Gulf Breeze community events" /> -->
+                <!-- </Grid> -->
             </Grid>
         </Border>
 

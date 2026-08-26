@@ -29,11 +29,15 @@ public static class MauiProgram
         builder.Services.AddSingleton<ILocationPermissionService, LocationPermissionService>();
         builder.Services.AddSingleton<ILocalAccessService, LocalAccessService>();
         builder.Services.AddSingleton<IAlertService, ShellAlertService>();
+        builder.Services.AddSingleton<TrackingShareState>();
         builder.Services.AddTransient<AppShell>();
         builder.Services.AddTransient<HomeViewModel>();
         builder.Services.AddTransient<HomeView>();
         builder.Services.AddTransient<FireTruckTrackerView>();
         builder.Services.AddTransient<BandTrackerView>();
+        builder.Services.AddTransient<AdminViewModel>();
+        builder.Services.AddTransient<AdminView>();
+        builder.Services.AddTransient<MapsUnavailableView>();
 #if DEBUG
         builder.Logging.AddDebug();
 #endif

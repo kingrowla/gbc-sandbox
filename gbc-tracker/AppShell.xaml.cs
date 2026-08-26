@@ -8,9 +8,20 @@ public partial class AppShell : Shell
     {
         InitializeComponent();
 
+        TrackerShellContent.ContentTemplate = new DataTemplate(() =>
+            DeviceInfo.Platform == DevicePlatform.Android
+                ? services.GetRequiredService<MapsUnavailableView>()
+                : services.GetRequiredService<FireTruckTrackerView>());
+        
         HomeShellContent.ContentTemplate = new DataTemplate(
-            () => services.GetRequiredService<HomeView>());
-        Routing.RegisterRoute(AppRoutes.FireTruckTracker, typeof(FireTruckTrackerView));
+            services.GetRequiredService<HomeView>);
+
+        AdminShellContent.ContentTemplate = new DataTemplate(
+            services.GetRequiredService<AdminView>);
+
         Routing.RegisterRoute(AppRoutes.BandTracker, typeof(BandTrackerView));
+        Routing.RegisterRoute(AppRoutes.Home, typeof(HomeView));
+        Routing.RegisterRoute(AppRoutes.Admin, typeof(AdminView));
+
     }
 }
